@@ -1,0 +1,8 @@
+/* Any element that holds tile elements needs to be sized to a ratio of 
+(number-tiles * 100) : 140 */
+
+.rack {
+    display: flex;
+    width: 70vw;
+    height: 50vh;
+}

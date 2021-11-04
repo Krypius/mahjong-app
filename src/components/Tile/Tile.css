@@ -1,0 +1,95 @@
+
+.tile {
+    --max-height: 140px;
+    --max-width: 100px;
+    --max-depth: 84px;
+
+    --X: 0;
+    --Y: 0;
+    --Z: 0;
+
+    --rot-x: calc(var(--X) * 1deg);
+    --rot-y: calc(var(--Y) * 1deg);
+    --rot-z: calc(var(--Z) * 1deg);
+
+    --height: 10vh;
+    --width: calc(var(--height) / 1.4);
+    --depth: calc(var(--height) * 0.6);
+    
+    --hover-vertical-offset: -30%;
+
+    max-height: var(--max-height);
+    max-width: var(--max-width);
+    height: var(--height);
+    width: var(--width);
+
+    position: relative;
+    transform: rotateX(var(--rot-x)) rotateY(var(--rot-y)) rotateZ(var(--rot-z));
+    transform-style: preserve-3d;
+    
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+
+}
+.tile:hover {
+    transform: translate3d(0, var(--hover-vertical-offset), 0) 
+            rotateX(var(--rot-x)) rotateY(var(--rot-y)) rotateZ(var(--rot-z));
+}
+.tile:focus {
+    transform: translate3d(0, -100%, 0) 
+            rotateX(var(--rot-x) + 360deg) rotateY(var(--rot-y) + 360deg) rotateZ(var(--rot-z));
+}
+
+.face {
+    background-color: var(--background-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    pointer-events : none;
+    left: 50%;
+    top: 50%;
+}
+
+
+
+.front {
+    --coefficient: 0.5;
+
+    background-image: url("tile-front.png");
+
+    max-height: var(--max-height);
+    max-width: var(--max-width);
+    height: var(--height);
+    width: var(--width);
+    
+    transform: translate(-50%, -50%) translate3d(0, 0, calc(var(--depth) * var(--coefficient)));
+}
+
+
+.side-vertical {
+    --bottom: 0;
+    --rotation: calc(calc(calc(var(--bottom) * 2) - 1) * 90deg);
+    background-image:url("tile-side-vertical.png");
+    max-height: var(--max-depth);
+    max-width: var(--max-width);
+    height: var(--depth);
+    width: var(--width);
+    transform: translate(-50%, -50%) rotateY(calc(var(--bottom) * 180deg)) rotateX(var(--rotation)) translate3d(0, 0, calc(var(--height) * -0.5));
+}
+
+.side-horizontal {
+    --right: 0;
+    --rotation: calc(calc(calc(var(--right) * 2) - 1) * -90deg);
+    background-image:url("tile-side-horizontal.png");
+    max-height: var(--max-height);
+    max-width: var(--max-depth);
+    height: var(--height);
+    width: var(--depth);
+    transform: translate(-50%, -50%) rotateX(calc(var(--right) * 180deg)) rotateY(var(--rotation)) translate3d(0, 0, calc(var(--width) * -0.5));
+}
+
+@keyframes rot {
+    to { 
+        transform: rotateX(2turn) rotateY(1turn); 
+    }
+}
