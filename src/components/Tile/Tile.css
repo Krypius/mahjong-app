@@ -1,5 +1,9 @@
 
 .tile {
+    --height: 10vh;
+    --width: calc(var(--height) / 1.4);
+    --depth: calc(var(--height) * 0.6);
+     
     --max-height: 140px;
     --max-width: 100px;
     --max-depth: 84px;
@@ -7,15 +11,10 @@
     --X: 0;
     --Y: 0;
     --Z: 0;
-
     --rot-x: calc(var(--X) * 1deg);
     --rot-y: calc(var(--Y) * 1deg);
     --rot-z: calc(var(--Z) * 1deg);
-
-    --height: 10vh;
-    --width: calc(var(--height) / 1.4);
-    --depth: calc(var(--height) * 0.6);
-    
+  
     --hover-vertical-offset: -30%;
 
     max-height: var(--max-height);

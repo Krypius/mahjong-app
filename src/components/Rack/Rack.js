@@ -1,4 +1,5 @@
 import './Rack.css';
+import PropTypes from 'prop-types';
 import Tile from '../Tile/Tile';
 
 const Rack = ({hand}) => {
@@ -15,5 +16,16 @@ const Rack = ({hand}) => {
         </div>
     )
 }
+
+Rack.propTypes = {
+    hand: PropTypes.exact({
+        tiles: PropTypes.arrayOf(PropTypes.string),
+        rotation: PropTypes.exact({
+            x: PropTypes.number,
+            y: PropTypes.number,
+            z: PropTypes.number,
+        })
+    })
+};
 
 export default Rack;

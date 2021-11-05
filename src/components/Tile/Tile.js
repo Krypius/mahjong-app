@@ -1,10 +1,5 @@
 import './Tile.css';
-
-/*
-    At one point I wanted to only render the sides that were viewable
-    but at there was an issue with when animating a rotation, so for now
-    all sides will be rendered
-*/
+import PropTypes from 'prop-types';
 
 /* Want to make a 'Tile options' object that will configure the look of the tile*/
 
@@ -70,5 +65,14 @@ const sideVerticalStyle = (rotation) => {
         '--bottom' : bottom
     }
 }
+
+Tile.propTypes = {
+    type: PropTypes.string,
+    rotation: PropTypes.exact({
+        x: PropTypes.number,
+        y: PropTypes.number,
+        z: PropTypes.number,
+    }),
+};
 
 export default Tile;
