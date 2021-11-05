@@ -1,6 +1,6 @@
 
 .tile {
-    --height: 10vh;
+    --height: 15vh;
     --width: calc(var(--height) / 1.4);
     --depth: calc(var(--height) * 0.6);
      
@@ -61,8 +61,22 @@
     height: var(--height);
     width: var(--width);
     
-    transform: translate(-50%, -50%) translate3d(0, 0, calc(var(--depth) * var(--coefficient)));
+    transform: translate(-50%, -50%) translate3d(0, 0, calc(clamp(0px, var(--depth), var(--max-depth)) * var(--coefficient)));
 }
+/* Will Probably want to change this, as front and back are basically the same thing*/
+.back {
+    --coefficient: -0.5;
+
+    background-image: url("tile-back.png");
+
+    max-height: var(--max-height);
+    max-width: var(--max-width);
+    height: var(--height);
+    width: var(--width);
+    
+    transform: translate(-50%, -50%) translate3d(0, 0, calc(clamp(0px, var(--depth), var(--max-depth)) * var(--coefficient)));
+}
+
 
 
 .side-vertical {
@@ -73,7 +87,7 @@
     max-width: var(--max-width);
     height: var(--depth);
     width: var(--width);
-    transform: translate(-50%, -50%) rotateY(calc(var(--bottom) * 180deg)) rotateX(var(--rotation)) translate3d(0, 0, calc(var(--height) * -0.5));
+    transform: translate(-50%, -50%) rotateY(calc(var(--bottom) * 180deg)) rotateX(var(--rotation)) translate3d(0, 0, calc( clamp(0px, var(--height), var(--max-height)) * -0.5));
 }
 
 .side-horizontal {
@@ -84,7 +98,7 @@
     max-width: var(--max-depth);
     height: var(--height);
     width: var(--depth);
-    transform: translate(-50%, -50%) rotateX(calc(var(--right) * 180deg)) rotateY(var(--rotation)) translate3d(0, 0, calc(var(--width) * -0.5));
+    transform: translate(-50%, -50%) rotateX(calc(var(--right) * 180deg)) rotateY(var(--rotation)) translate3d(0, 0, calc( clamp(0px, var(--width), var(--max-width)) * -0.5));
 }
 
 @keyframes rot {

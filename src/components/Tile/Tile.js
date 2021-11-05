@@ -11,59 +11,18 @@ const Tile = ({type, rotation}) => {
         '--Z': rotation.z,
     }
 
-    const horizontalStyle = sideHorizonalStyle(rotation);
-    const verticalStyle = sideVerticalStyle(rotation);
-
     return (
         <div className="tile" style={rotationStyle}>
-            <div className="face front" style={{backgroundImage:`url(tile-faces/${type}.png)`}} />
-            {horizontalStyle && <div className="face side-horizontal" style={horizontalStyle}/>}
-            {verticalStyle && <div className="face side-vertical" style={verticalStyle} />}
+            <div className="face front" style={type && {backgroundImage:`url(tile-faces/${type}.png)`}} />
+            <div className="face side-horizontal" style={{'--right': 0}}/>
+            <div className="face side-horizontal" style={{'--right': 1}}/>
+            <div className="face side-vertical" style={{'--bottom': 0}}/>
+            <div className="face side-vertical" style={{'--bottom': 1}}/>
+            <div className="face back"/>
+            {/* {horizontalStyle && <div className="face side-horizontal" style={horizontalStyle}/>}
+            {verticalStyle && <div className="face side-vertical" style={verticalStyle} />} */}
         </div>
     )
-}
-
-const setStyles = (rotation) => {
-    let styles = {};
-    styles.rotation = {
-        '--X': rotation.x,
-        '--Y': rotation.y,
-        '--Z': rotation.z,
-    }
-
-    // should we show left
-    if(rotation.y > 0 || (rotation.z !== 0 && rotation.x < 0)) {
-        styles.horizontal = { '--right': 0 };
-    }
-
-    
-}
-
-const sideHorizonalStyle = (rotation) => {
-    //need to add in case when x and z rotation are not 0
-    if(rotation.y === 0) return undefined;
-    
-    let right = 0;
-    if(rotation.y < 0) {
-        right = 1;
-    }
-
-    return {
-        '--right' : right
-    }
-}
-
-const sideVerticalStyle = (rotation) => {
-    if(rotation.x === 0) return undefined;
-    
-    let bottom = 1;
-    if(rotation.x < 0) {
-        bottom = 0;
-    }
-
-    return {
-        '--bottom' : bottom
-    }
 }
 
 Tile.propTypes = {
