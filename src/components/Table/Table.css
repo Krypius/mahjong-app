@@ -1,0 +1,71 @@
+.table {
+    height: 95vh;
+    width: 95vw;
+
+     
+
+    background-color:rgba(136, 158, 168, 0.158);
+    border: 1px solid rgba(73, 134, 163, 0.815);
+
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr) 2fr;
+    grid-template-rows: repeat(6, 1fr);
+
+    /* grid-template-areas:
+    "top-player top-player top-player top-player top-player right-player info-panel"
+    "left-player left-player top-player top-player top-player right-player info-panel"
+    "left-player left-player center center right-player right-player info-panel"
+    "left-player left-player center center right-player right-player info-panel"
+    "left-player current-player current-player current-player right-player right-player info-panel"
+    "left-player current-player current-player current-player current-player current-player info-panel" */
+}
+
+.top-player {
+    grid-area: top-player;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.left-player {
+    grid-area: left-player;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 8;
+}
+
+.center {
+    background-color:rgba(73, 163, 158, 0.801);
+    grid-area: center;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 5;
+}
+
+.right-player {
+    grid-area: right-player;
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 6;
+}
+
+.bottom-player {
+    grid-area: bottom-player;
+    grid-column-start: 2;
+    grid-column-end: 7;
+    grid-row-start: 5;
+    grid-row-end: 8;
+}
+
+.info-panel {
+    background-color:rgba(179, 2, 2, 0.884);
+    grid-area: info-panel;
+    grid-column-start: 7;
+    grid-row-start: 1;
+
+}

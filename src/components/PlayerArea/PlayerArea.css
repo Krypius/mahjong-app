@@ -1,0 +1,61 @@
+.player-area {
+    display: grid;
+
+}
+
+
+.top-player.player-area {
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas: 
+    "oh poh"
+    ". poh";
+}
+.bottom-player.player-area {
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "poh ."
+    "poh oh";
+}
+.left-player.player-area {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3fr 2fr;
+    grid-template-areas: 
+    "poh poh"
+    "oh .";
+}
+.right-player.player-area {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 3fr;
+    grid-template-areas:
+    ". oh"
+    "poh poh";
+}
+
+.top-player > .pond-and-hand, 
+.top-player > .open-hand {
+    background-color:rgba(94, 163, 73, 0.719);
+}
+
+.left-player > .pond-and-hand, 
+.left-player > .open-hand {
+    background-color:rgba(74, 73, 163, 0.781);
+}
+.right-player > .pond-and-hand, 
+.right-player > .open-hand {
+    background-color:rgba(163, 73, 155, 0.815);
+}
+.bottom-player > .pond-and-hand, 
+.bottom-player > .open-hand {
+    background-color:rgba(179, 96, 2, 0.884);
+}
+
+
+.pond-and-hand {
+    grid-area: poh;
+}
+
+.open-hand {
+    grid-area: oh;
+}

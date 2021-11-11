@@ -3,6 +3,6 @@
 
 .rack {
     display: flex;
-    width: 70vw;
-    height: 50vh;
+    width: 130vmin;
+    height: 14vmin;
 }

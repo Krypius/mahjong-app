@@ -1,6 +1,16 @@
 
+.tile-container {
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+    
+}
+.tile-container:hover {
+    transform: translate3d(0, -30%, 0);
+}
+
+
 .tile {
-    --height: 15vh;
+    --height: 10vmin;
     --width: calc(var(--height) / 1.4);
     --depth: calc(var(--height) * 0.6);
      
@@ -25,18 +35,6 @@
     position: relative;
     transform: rotateX(var(--rot-x)) rotateY(var(--rot-y)) rotateZ(var(--rot-z));
     transform-style: preserve-3d;
-    
-    transition: transform 0.3s ease-out;
-    will-change: transform;
-
-}
-.tile:hover {
-    transform: translate3d(0, var(--hover-vertical-offset), 0) 
-            rotateX(var(--rot-x)) rotateY(var(--rot-y)) rotateZ(var(--rot-z));
-}
-.tile:focus {
-    transform: translate3d(0, -100%, 0) 
-            rotateX(var(--rot-x) + 360deg) rotateY(var(--rot-y) + 360deg) rotateZ(var(--rot-z));
 }
 
 .face {
