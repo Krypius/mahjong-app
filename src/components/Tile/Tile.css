@@ -4,14 +4,15 @@
     will-change: transform;
     
 }
-.tile-container:hover {
-    transform: translate3d(0, -30%, 0);
-}
 
 
 .tile {
-    --height: 10vmin;
+    /* --height: 10vmin;
     --width: calc(var(--height) / 1.4);
+    --depth: calc(var(--height) * 0.6); */
+
+    --width: 8vmin;
+    --height: calc(var(--width) * 1.4);
     --depth: calc(var(--height) * 0.6);
      
     --max-height: 140px;
@@ -25,14 +26,12 @@
     --rot-y: calc(var(--Y) * 1deg);
     --rot-z: calc(var(--Z) * 1deg);
   
-    --hover-vertical-offset: -30%;
-
     max-height: var(--max-height);
     max-width: var(--max-width);
     height: var(--height);
     width: var(--width);
 
-    position: relative;
+    position: absolute;
     transform: rotateX(var(--rot-x)) rotateY(var(--rot-y)) rotateZ(var(--rot-z));
     transform-style: preserve-3d;
 }
@@ -45,6 +44,7 @@
     pointer-events : none;
     left: 50%;
     top: 50%;
+    transform-style: preserve-3d;
 }
 
 

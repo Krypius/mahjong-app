@@ -26,7 +26,7 @@ const Rack = ({hand}) => {
         margin={[0, 0]}
         isResizable={false} 
         autoSize={true}
-        rowHeight={32}
+        rowHeight={35}
         isBounded={true}>
         {tiles.map((tile, index) => {
             return( 

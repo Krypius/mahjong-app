@@ -3,6 +3,7 @@
 
 .rack {
     display: flex;
-    width: 130vmin;
-    height: 14vmin;
+    width: 104vmin;
+    height: 11.2vmin;
+    transform-style: preserve-3d;
 }
