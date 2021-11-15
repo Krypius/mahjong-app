@@ -5,7 +5,6 @@ import Rack from './components/Rack/Rack';
 function App() {
   return (
     <div className="app-container">
-      {/* <Table /> */}
       <Rack hand={testHand}/>
     </div>
   );
